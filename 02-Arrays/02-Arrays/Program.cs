@@ -102,8 +102,8 @@ int[] arr = { 3, 1, 2, 5, 5, 6, 4, 8, 9 };
 int lengthOdd, lengthEven;
 if (arr.Length % 2 == 1)
 {
-    lengthOdd = arr.Length / 2 + 1;
-    lengthEven = arr.Length / 2;
+    lengthOdd = arr.Length / 2 ;
+    lengthEven = arr.Length / 2 + 1;
 }
 else
 {
@@ -116,7 +116,7 @@ int[] arrEven = new int[lengthEven];
 int indexOdd = 0;
 int indexEven = 0;
 
-for (int i = 0; i < arr.Length - 1; i++)
+for (int i = 0; i < arr.Length; i++)
 {
     if (i % 2 == 0)
     {
@@ -164,3 +164,5 @@ foreach (int odd in arrOdd)
     }
 }
 #endregion
+
+Console.ReadLine();
