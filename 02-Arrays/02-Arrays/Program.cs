@@ -98,7 +98,7 @@ foreach (int i in arrFirst)
 #endregion
 
 #region Task 8: Verilmiş integer array-in tək indexdə duran elementləri ilə cüt indexdə duran elementləri müqayisə edin
-int[] arr = { 3, 1, 2, 5, 5, 6, 4, 8, 9 };
+/*int[] arr = { 3, 1, 2, 5, 5, 6, 4, 8, 9 };
 int lengthOdd, lengthEven;
 if (arr.Length % 2 == 1)
 {
@@ -162,7 +162,5 @@ foreach (int odd in arrOdd)
             Console.WriteLine($"Odd number {odd} is equal to even number {even}");
         }
     }
-}
+}*/
 #endregion
-
-Console.ReadLine();
