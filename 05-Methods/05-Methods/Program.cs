@@ -10,15 +10,22 @@ namespace _05_Methods
     {
         static void Main(string[] args)
         {
-            int[] arr = { 10, 30, 50 };
-            int index = IndexOf(arr, 30);
-            Console.WriteLine(index);
+            int[] arr = { 10, 30, 50, 30, 40 ,80, 120 };
+            int num = 120;
+            int index = IndexOf(arr, num);
+            if (index >= 0) Console.WriteLine($"Index of number {num} is {index}\n");
+            else Console.WriteLine($"The number {num} is not in array\n");
 
-            string str = "saLaM doStlaR! neCesiNiz?";
+            string str = "Hello GUYS! How are YOU?";
             string upperText = ToUpper(str);
             string lowerText = ToLower(str);
             string cleanText = CleanString(str);
-            Console.WriteLine($"Upper Case: {upperText}\nLower Case: {lowerText}\nClean String: {cleanText}");
+            Console.WriteLine($"Original text: {str}\nUpper Case: {upperText}\nLower Case: {lowerText}\nClean String: {cleanText}\n");
+
+            // oz elave yazdigim trim method (labtaskda yox idi)
+            string str2 = "  How are? ";
+            string trimText = TrimString(str2);
+            Console.WriteLine($"Before trim: {str2}, {str2.Length}\nAfter trim: {trimText}, {trimText.Length}");
         }
 
         static int IndexOf(int[] array, int num)
@@ -30,6 +37,7 @@ namespace _05_Methods
                 if (array[i] == num)
                 {
                     indexOfNum = i;
+                    break;
                 }
             }
 
@@ -82,12 +90,48 @@ namespace _05_Methods
 
             foreach (char c in word)
             { 
-                if ((c >= 65 && c<= 90) || (c >= 97 && c <= 122) || c == ' ')
+                if ((c >= 65 && c<= 90) || (c >= 97 && c <= 122) || c == ' ') // if only contains letters and ' ' add it to string;
                 {
                     newWord += c;
                 }
             }
 
+            return newWord;
+        }
+
+        static string TrimString(string word)
+        {
+            string newWord = "";
+            int startIndex = 0;
+            int endIndex = word.Length - 1;
+
+            // if there is no ' ' at the end or start of the sentence or word, this means there is no ' ' to trim
+            // thats why we immediately return from function and be aware of extra actions :)
+            if (word[startIndex] != ' ' && word[endIndex] != ' ') return word;
+
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (word[0] == ' ' && word[i] != ' ') // if word[0] is ' ' and check for next ones and if its different than ' '
+                {
+                    startIndex = i; // when first character different than ' ' founded, set it as startIndex and break the loop 
+                    break;
+                }
+            }
+
+            for (int i = word.Length - 1; i > startIndex; i--) 
+            {
+                if (word[word.Length - 1] == ' ' && word[i] != ' ') // if end is ' ' and check for previus ones and if its different ' '
+                {
+                    endIndex = i; // when first character different than ' ' founded, set it as endIndex and break the loop 
+                    break;
+                }
+            }
+
+            for(int i = startIndex; i <= endIndex; i++) // loop the input word again, with indexes from startIndex to the endIndex
+            {
+                newWord += word[i];
+            }
+            
             return newWord;
         }
     }
