@@ -23,7 +23,7 @@ namespace _05_Methods
             Console.WriteLine($"Original text: {str}\nUpper Case: {upperText}\nLower Case: {lowerText}\nClean String: {cleanText}\n");
 
             // oz elave yazdigim trim method (labtaskda yox idi)
-            string str2 = "  How are? ";
+            string str2 = "  How are?   ";
             string trimText = TrimString(str2);
             Console.WriteLine($"Before trim: {str2}, {str2.Length}\nAfter trim: {trimText}, {trimText.Length}");
         }
@@ -111,7 +111,7 @@ namespace _05_Methods
 
             for (int i = 0; i < word.Length; i++)
             {
-                if (word[0] == ' ' && word[i] != ' ') // if word[0] is ' ' and check for next ones and if its different than ' '
+                if (word[i] != ' ') // if word[0] is ' ' and check for next ones and if its different than ' '
                 {
                     startIndex = i; // when first character different than ' ' founded, set it as startIndex and break the loop 
                     break;
@@ -120,7 +120,7 @@ namespace _05_Methods
 
             for (int i = word.Length - 1; i > startIndex; i--) 
             {
-                if (word[word.Length - 1] == ' ' && word[i] != ' ') // if end is ' ' and check for previus ones and if its different ' '
+                if (word[i] != ' ') // if end is ' ' and check for previus ones and if its different ' '
                 {
                     endIndex = i; // when first character different than ' ' founded, set it as endIndex and break the loop 
                     break;
