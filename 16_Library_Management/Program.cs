@@ -31,7 +31,7 @@
             Console.WriteLine("---------------");
             try
             {
-                LibraryItem gettedItemById2 = catalog[2]; // exception alacagiq (bui id'de item tapilmadi) ve null qaytaracaq 
+                LibraryItem gettedItemById2 = catalog[2]; // exception alacagiq (bui id'de item tapilmadi) 
                 gettedItemById2.DisplayInfo();
             }
             catch (CustomBookException ex)
