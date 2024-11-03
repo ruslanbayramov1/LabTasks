@@ -1,0 +1,22 @@
+[
+  {
+    "BookGenre": 1,
+    "LibraryLocation": {
+      "Aisle": 2,
+      "Shelf": 4
+    },
+    "Id": 2,
+    "Title": "Lost",
+    "PublicationYear": 2015
+  },
+  {
+    "BookGenre": 0,
+    "LibraryLocation": {
+      "Aisle": 2,
+      "Shelf": 1
+    },
+    "Id": 3,
+    "Title": "Heros",
+    "PublicationYear": 2016
+  }
+]
