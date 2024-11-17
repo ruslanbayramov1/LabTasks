@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository.csproj", "{355CA84A-3EC6-4258-91D7-73166386BC88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "..\Core\Core.csproj", "{2C1EEC96-98C3-499A-A7F0-B4E31FE4E043}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "..\Application\Application.csproj", "{0336B93F-0D01-43C1-B5BE-905FCCFD1991}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{355CA84A-3EC6-4258-91D7-73166386BC88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{355CA84A-3EC6-4258-91D7-73166386BC88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{355CA84A-3EC6-4258-91D7-73166386BC88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{355CA84A-3EC6-4258-91D7-73166386BC88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C1EEC96-98C3-499A-A7F0-B4E31FE4E043}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C1EEC96-98C3-499A-A7F0-B4E31FE4E043}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C1EEC96-98C3-499A-A7F0-B4E31FE4E043}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C1EEC96-98C3-499A-A7F0-B4E31FE4E043}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0336B93F-0D01-43C1-B5BE-905FCCFD1991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0336B93F-0D01-43C1-B5BE-905FCCFD1991}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0336B93F-0D01-43C1-B5BE-905FCCFD1991}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0336B93F-0D01-43C1-B5BE-905FCCFD1991}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A0EE5AC-8559-4752-9FED-007ED30659E5}
+	EndGlobalSection
+EndGlobal
