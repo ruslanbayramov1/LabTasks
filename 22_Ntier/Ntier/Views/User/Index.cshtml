@@ -1,0 +1,21 @@
+﻿@model UserVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table border="1" cellpadding="10" cellspacing="0">
+    <thead style="text-align:left">
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody style="text-align:left">
+        @foreach (var data in Model.Profiles)
+        { 
+            <tr>
+                <td>@data.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
