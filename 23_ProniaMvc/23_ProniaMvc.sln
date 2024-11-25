@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35514.174 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slider.MVC", "Slider.MVC\Slider.MVC.csproj", "{20A8B797-2F4F-4EC9-B52C-84533C94462C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slider.DAL", "Slider.DAL\Slider.DAL.csproj", "{4D4BE70D-A0EC-42E5-8392-D4648085F213}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slider.BS", "Slider.BS\Slider.BS.csproj", "{AC899203-94FC-4882-B914-9C1498F86EE1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20A8B797-2F4F-4EC9-B52C-84533C94462C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20A8B797-2F4F-4EC9-B52C-84533C94462C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20A8B797-2F4F-4EC9-B52C-84533C94462C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20A8B797-2F4F-4EC9-B52C-84533C94462C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D4BE70D-A0EC-42E5-8392-D4648085F213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D4BE70D-A0EC-42E5-8392-D4648085F213}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D4BE70D-A0EC-42E5-8392-D4648085F213}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D4BE70D-A0EC-42E5-8392-D4648085F213}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC899203-94FC-4882-B914-9C1498F86EE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC899203-94FC-4882-B914-9C1498F86EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC899203-94FC-4882-B914-9C1498F86EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC899203-94FC-4882-B914-9C1498F86EE1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
