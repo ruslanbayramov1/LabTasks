@@ -1,0 +1,56 @@
+﻿@model List<Service>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container-fluid py-2">
+    <div class="row">
+        <div class="col-12">
+            <div class="card my-4">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3" style="display:flex; justify-content:space-between">
+                        <h6 class="text-white text-capitalize ps-3">Services table</h6>
+                        <a style="margin-right:1.5rem;color:#fff;" asp-controller="Service" asp-action="Create">Create</a>
+                    </div>
+                </div>
+                <div class="card-body px-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Description</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Icon Name</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var data in Model ?? [])
+                                {
+                                    <tr>
+                                        <td>
+                                            <p class="text-xs text-secondary mb-0">@data.Title</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-xs text-secondary mb-0">@data.Description</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-xs text-secondary mb-0">@data.Icon</p>
+                                        </td>
+                                        <td class="align-middle text-center text-sm">
+                                            <a asp-controller="Service" asp-action="Update" asp-route-id="@data.Id" class="badge badge-sm bg-gradient-success">Edit</a>
+                                        </td>
+                                        <td class="align-middle text-center text-sm">
+                                            <a asp-controller="Service" asp-action="Delete" asp-route-id="@data.Id" class="badge badge-sm bg-gradient-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+﻿@model SliderCreateVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container-fluid py-2">
+    <div class="row">
+        <div class="col-12">
+            <div class="card my-4">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3">
+                        <h6 class="text-white text-capitalize ps-3">Slider Create Form</h6>
+                    </div>
+                </div>
+                <div class="card-body px-3 pb-2">
+                    <form enctype="multipart/form-data" method="post" class="table-responsive">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-sm font-weight-bolder opacity-7" style="padding: 0.75rem 0.5rem">Field</th>
+                                    <th class="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">Input</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle">
+                                        <p class="text-sm text-secondary mb-0">Title</p>
+                                    </td>
+                                    <td>
+                                        <input asp-for="Title" class="form-control" placeholder="Enter title">
+                                        <span class="text-primary" asp-validation-for="Title"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="align-middle">
+                                        <p class="text-sm text-secondary mb-0">Description</p>
+                                    </td>
+                                    <td>
+                                        <textarea asp-for="ShortDesc" class="form-control" placeholder="Enter description"></textarea>
+                                        <span class="text-primary" asp-validation-for="ShortDesc"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="align-middle">
+                                        <p class="text-sm text-secondary mb-0">Image</p>
+                                    </td>
+                                    <td>
+                                        <input asp-for="File" accept="image/*" class="form-control">
+                                        <span class="text-primary" asp-validation-for="File"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <button class="btn bg-gradient-dark text-white mt-3">Submit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
