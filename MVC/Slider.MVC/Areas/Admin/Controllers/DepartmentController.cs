@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Slider.BS.Services.Abstractions;
 using Slider.DAL.Models;
 
 namespace Slider.MVC.Areas.Admin.Controllers;
 
 [Area("Admin")]
+[Authorize(Roles = "Admin, Doctor")]
 public class DepartmentController : Controller
 {
     private readonly IDepartmentService _departmentService;

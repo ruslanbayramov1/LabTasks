@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Slider.MVC.ViewModels.Errors;
 
 namespace Slider.MVC.Areas.Admin.Controllers

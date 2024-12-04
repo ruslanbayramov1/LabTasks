@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Slider.BS.Services.Abstractions;
 using Slider.DAL.Contexts;
@@ -8,6 +9,7 @@ using Slider.MVC.ViewModels.Services;
 namespace Slider.MVC.Areas.Admin.Controllers;
 
 [Area("Admin")]
+[Authorize(Roles = "Admin")]
 public class ServiceController : Controller
 {
     private readonly SliderDbContext _context;

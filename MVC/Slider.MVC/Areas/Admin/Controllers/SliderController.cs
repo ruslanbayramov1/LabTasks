@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Slider.BS.Commonsl;
 using Slider.BS.Extensions;
 using Slider.BS.Services.Abstractions;
@@ -8,6 +9,7 @@ using Slider.MVC.ViewModels.Sliders;
 namespace Slider.MVC.Areas.Admin.Controllers;
 
 [Area("Admin")]
+[Authorize(Roles = "Admin")]
 public class SliderController : Controller
 {
     private readonly ISliderService _sliderService;

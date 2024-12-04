@@ -1,45 +1,74 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Slider.BS.Services.Abstractions;
 using Slider.BS.Services.Implements;
 using Slider.DAL.Contexts;
+using Slider.DAL.Models;
+using Slider.MVC.Extensions;
 
-namespace Slider.MVC
+namespace Slider.MVC;
+
+public class Program
 {
-    public class Program
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
+        var builder = WebApplication.CreateBuilder(args);
+
+        string? connStr = builder.Configuration.GetConnectionString("MSSql");
+        // Add services to the container.
+        builder.Services.AddControllersWithViews();
+
+        builder.Services.AddDbContext<SliderDbContext>(opt =>
         {
-            var builder = WebApplication.CreateBuilder(args);
+            opt.UseSqlServer(connStr);
+        });
 
-            string? connStr = builder.Configuration.GetConnectionString("MSSql");
-            // Add services to the container.
-            builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContext<SliderDbContext>(opt =>
-            {
-                opt.UseSqlServer(connStr);
-            });
-            builder.Services.AddScoped<ISliderService, SliderService>();
-            builder.Services.AddScoped<IServiceService, ServiceService>();
-            builder.Services.AddScoped<IDepartmentService, DepartmentService>();
+        builder.Services.AddScoped<ISliderService, SliderService>();
+        builder.Services.AddScoped<IServiceService, ServiceService>();
+        builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 
-            var app = builder.Build();
+        builder.Services.AddIdentity<User, IdentityRole>(opt =>
+        {
+            opt.User.RequireUniqueEmail = true;
+            opt.Password.RequiredUniqueChars = 3;
+            opt.Password.RequireNonAlphanumeric = false;
+            opt.Password.RequiredLength = 3;
+            opt.Password.RequireDigit = false;
+            opt.Password.RequireLowercase = false;
+            opt.Password.RequireUppercase = false;
+            opt.Lockout.AllowedForNewUsers = true;
+            opt.Lockout.MaxFailedAccessAttempts = 3;
+            opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(60);
+        })
+            .AddDefaultTokenProviders()
+            .AddEntityFrameworkStores<SliderDbContext>();
 
-            // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
-            {
-                app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
-            }
-            app.UseStaticFiles();
+        builder.Services.ConfigureApplicationCookie(x => {
+            x.LoginPath = "/Account/Login";
+            x.AccessDeniedPath = "/Home/Denied";
+        });
 
-            app.MapControllerRoute(
-                name: "areas",
-                pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+        var app = builder.Build();
 
-            app.Run();
+        // Configure the HTTP request pipeline.
+        if (!app.Environment.IsDevelopment())
+        {
+            app.UseExceptionHandler("/Home/Error");
+            app.UseHsts();
         }
+
+        app.UseAuthorization();
+        app.UseCustomUserData();
+        app.UseStaticFiles();
+
+        app.MapControllerRoute(
+            name: "areas",
+            pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
+
+        app.MapControllerRoute(
+            name: "default",
+            pattern: "{controller=Home}/{action=Index}/{id?}");
+
+        app.Run();
     }
 }

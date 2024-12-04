@@ -6,7 +6,7 @@ using Slider.MVC.ViewModels.Services;
 
 namespace Slider.MVC.Controllers
 {
-	public class HomeController : Controller
+    public class HomeController : Controller
     {
         private readonly ISliderService _sliderService;
         private readonly IServiceService _serviceService;
@@ -20,16 +20,21 @@ namespace Slider.MVC.Controllers
         {
             List<SliderItem> sliders = await _sliderService.GetAllSliderItems();
             List<Service> services = await _serviceService.GetAllServices();
-            List<ServiceItemVM> serviceItems = services.Select(x => new ServiceItemVM { 
+            List<ServiceItemVM> serviceItems = services.Select(x => new ServiceItemVM {
                 Title = x.Title,
                 Description = x.Description,
-                Icon = x.Icon 
+                Icon = x.Icon
             }).ToList();
 
             HomeVM vm = new HomeVM();
             vm.Sliders = sliders;
             vm.Services = services;
             return View(vm);
+        }
+
+        public IActionResult Denied()
+        { 
+            return View();
         }
     }
 }

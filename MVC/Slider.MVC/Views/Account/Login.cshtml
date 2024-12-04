@@ -1,0 +1,112 @@
+﻿@model LoginVM
+@{
+    ViewData["Title"] = "Register";
+}
+@section styles {
+    <style>
+        /* General container styling */
+        .login-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Heading */
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Input group styling */
+        .input-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group input:focus {
+            border-color: #66afe9;
+            outline: none;
+        }
+
+        /* Button styling */
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Link to Sign Up */
+        .signup-link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .signup-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+}
+
+<div class="login-container">
+    <form action="#" method="POST" class="login-form">
+        <h2>Login</h2>
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" asp-for="UserName" placeholder="Enter your username">
+        </div>
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" asp-for="Password" placeholder="Enter your password">
+        </div>
+        <div>
+            <label style="color: #111" for="username">Remember me</label>
+            <input type="checkbox" id="username" asp-for="RememberMe" placeholder="Enter your username">
+        </div>
+        <div asp-validation-summary="ModelOnly"></div>
+        <button type="submit" class="login-btn">Login</button>
+        <div class="signup-link">
+            <p>Don't have an account? <a asp-controller="Account" asp-action="Register">Sign Up</a></p>
+        </div>
+    </form>
+</div>
