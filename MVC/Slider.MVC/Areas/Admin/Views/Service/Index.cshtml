@@ -1,6 +1,6 @@
 ﻿@model List<Service>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Services";
 }
 
 <div class="container-fluid py-2">
@@ -39,10 +39,10 @@
                                             <p class="text-xs text-secondary mb-0">@data.Icon</p>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <a asp-controller="Service" asp-action="Update" asp-route-id="@data.Id" class="badge badge-sm bg-gradient-success">Edit</a>
+                                            <a asp-controller="Department" asp-action="Update" asp-route-id="@data.Id" class="badge badge-sm bg-gradient-success">Edit</a>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <a asp-controller="Service" asp-action="Delete" asp-route-id="@data.Id" class="badge badge-sm bg-gradient-danger">Delete</a>
+                                            <a asp-controller="Department" asp-action="Delete" asp-route-id="@data.Id" class="badge badge-sm bg-gradient-danger">Delete</a>
                                         </td>
                                     </tr>
                                 }

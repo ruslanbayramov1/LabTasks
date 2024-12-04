@@ -22,14 +22,14 @@ public class ServiceService : IServiceService
     public async Task<int> DeleteService(int id)
     {
         Service service = await GetServiceById(id);
-        _context.Services.Remove(service);
+        service.IsDeleted = true;
         int res = await _context.SaveChangesAsync();
         return res;
     }
 
     public async Task<List<Service>> GetAllServices()
     {
-        List<Service> services = await _context.Services.ToListAsync();
+        List<Service> services = await _context.Services.Where(x => !x.IsDeleted).ToListAsync();
         return services;
     }
 
@@ -49,6 +49,8 @@ public class ServiceService : IServiceService
         Service oldService = await GetServiceById(id);
         oldService.Title = newService.Title;
         oldService.Description = newService.Description;
+        oldService.Icon = newService.Icon;
+        oldService.DepartmentId = newService.DepartmentId;
         int res = await _context.SaveChangesAsync();
 
         return res;

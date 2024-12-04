@@ -20,6 +20,7 @@ namespace Slider.MVC
             });
             builder.Services.AddScoped<ISliderService, SliderService>();
             builder.Services.AddScoped<IServiceService, ServiceService>();
+            builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 
             var app = builder.Build();
 

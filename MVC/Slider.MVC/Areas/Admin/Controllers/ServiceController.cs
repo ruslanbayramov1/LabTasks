@@ -25,7 +25,7 @@ public class ServiceController : Controller
 
     public async Task<IActionResult> Create()
     {
-        ViewBag.Departments = await _context.Departments.ToListAsync();
+        ViewBag.Departments = await _context.Departments.Where(x => !x.IsDeleted).ToListAsync();
         return View();
     }
 
@@ -48,13 +48,34 @@ public class ServiceController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    public async Task<IActionResult> Update()
+    public async Task<IActionResult> Update(int? id)
     {
-        return View();
+        if (!id.HasValue) return BadRequest();
+        Service service = await _serviceService.GetServiceById(id.Value);
+        ViewBag.Departments = await _context.Departments.Where(x => !x.IsDeleted).ToListAsync();
+        return View(service);
     }
 
-    public async Task<IActionResult> Delete()
+    [HttpPost]
+    public async Task<IActionResult> Update(int? id, ServiceItemVM vm)
     {
-        return View();
+        if (!id.HasValue) return BadRequest();
+        Service service = new Service
+        { 
+            Title = vm.Title,
+            Description = vm.Description,
+            DepartmentId = vm.DepartmentId,
+            Icon = vm.Icon
+        };
+        await _serviceService.UpdateService(id.Value, service);
+        return RedirectToAction(nameof(Index));
+    }
+
+    public async Task<IActionResult> Delete(int? id)
+    {
+        if (!id.HasValue) return BadRequest();
+
+        await _serviceService.DeleteService(id.Value);
+        return RedirectToAction(nameof(Index));
     }
 }
